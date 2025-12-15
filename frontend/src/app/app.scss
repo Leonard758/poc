@@ -1,0 +1,79 @@
+
+
+// Layout generale a tutto schermo
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Occupa il 100% dell'altezza della finestra
+  overflow: hidden; // Niente scroll sulla finestra principale
+}
+
+// 1. NAVBAR SUPERIORE
+.top-navbar {
+  height: 60px;            // Altezza fissa
+  background-color: #333;  // Grigio scuro (come da richiesta)
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;          // Non si rimpicciolisce mai
+  
+  .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+}
+
+// Contenitore sotto la navbar (Sidebar + Contenuto)
+.main-container {
+  display: flex;
+  flex: 1; // Occupa tutto lo spazio rimanente in altezza
+  overflow: hidden;
+}
+
+// 2. SIDEBAR LATERALE
+.sidebar {
+  width: 250px;           // Larghezza fissa
+  background-color: #fff; // Bianca (come da richiesta)
+  border-right: 1px solid #e0e0e0; // Sottile linea grigia di separazione
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 15px 25px;
+    cursor: pointer;
+    color: #555;
+    font-family: sans-serif;
+    font-weight: 500;
+    border-left: 4px solid transparent; // Bordo invisibile per l'effetto hover
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    // Stile quando il link è attivo (siamo su quella pagina)
+    &.active {
+      background-color: #e8f0fe; // Azzurrino chiaro o grigio chiaro
+      color: #1a73e8; // Colore evidenziato
+      border-left-color: #1a73e8;
+    }
+  }
+}
+
+// 3. AREA CONTENUTO
+.content-area {
+  flex: 1;              // Prende tutto lo spazio che avanza a destra
+  background-color: #f0f2f5; // Grigio chiaro per staccare dal bianco della sidebar
+  padding: 30px;
+  overflow-y: auto;     // Scrolla SOLO se il contenuto è lungo
+}
